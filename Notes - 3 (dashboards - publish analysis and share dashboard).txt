@@ -1,0 +1,19 @@
+********************** Dashboard ****************************
+
+Refer the analysis 21. Comprehensive Sales Report.
+This has KPIs, Line Chart, Bar Chart, Pie/Donut Chart, Interactions etc.
+
+How was the standalone Region filter created ?
+Click on any one visual, add filter, then add to sheet -> it becomes standalone. Then pin to top, if needed.
+
+Now you can choose to "Publish" this analysis as a "dashboard" -> a read-only report of the analysis.
+Once published as a dashboard, go to "Dashboards" tab, open the dashboard and "share" from top-right corner.
+Here you can enable access for everyone in this account or invite specific users/groups.
+If you enable access for everyone in this account, you can also enable "Discoverable in QuickSight" to make this dashboard visible in QuickSight homepage for all users in this account.
+
+Come outside the dashboard, top-right corner, Manage QuickSight.
+Here you can add IAM users who are authors (lakeformation_admin) and IAM users who are readers (lakeformation_user1, lakeformation_user2).
+So only these users will have access to the dashboard shared above because of "Enable access for only people Discoverable in QuickSight".
+Authors will be able create analyses as well and they will see all options in the left-corner. They can see the dashboard created above as well.
+Readers will only be able to see dashboards.
+

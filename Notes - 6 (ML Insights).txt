@@ -1,0 +1,11 @@
+Refer Sheet 2 in 21. Comprehensive Sales Report.
+
+When you click on Sum of Sales by Order Date Line chart, you can click on the bulb/ballon like "Insights" button and add relevant details as text in your sheet.
+I also added an Interactive Sales by Product Category Bar chart and the Insights / Line Chart all change according to the category selected.
+
+Refer Sheet 3 in 21. Comprehensive Sales Report.
+
+Unlike sales trend over time, what we have is a comparison of sales in different sub-categories.
+Here we get a different set of Insights.
+Instead of adding another table or visual for Region, i created a filter, added to sheet, pinned it to top and made the filter applicable to all applicable visuals.
+The insights also change according to the Region/Regions selected.

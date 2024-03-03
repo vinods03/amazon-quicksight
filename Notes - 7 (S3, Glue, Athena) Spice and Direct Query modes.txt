@@ -1,0 +1,64 @@
+Refer 26. Athena Data Source
+
+So far, we have seen csv files from local desktop as dataset. This is not how it is going to be in real world. Our dataset is going to be in S3 or Glue Data Catalog or Redshift.
+
+In Amazon QuickSight, go to Datasets -> New dataset -> Athena -> i gave the data source name as S3-datasource. Validate connection and create dataset.
+Now choose your table from AWS Glue Data Catalog.
+I selected the vinod-lakeformation-raw-database -> sales_customer table. 
+You can edit / preview data or write custom SQL on this table.
+I just saved and published this data.
+
+Also, i noted that whenever data changes in the glue data catalog table, it automatically reflects in Amazon QuickSight.
+This is because, when you edit dataset, the query mode is "Direct". In this case, you dont have to manually refresh dataset.
+However, you might have to close and reopen the analysis again - i.e. go to QuickSight homescreen or some other analysis and then reopen this analysis.
+I inserted below 3 records in glue data catalog through athena to verify this:
+insert into "vinod-lakeformation-raw-database"."sales_customer" values (5012, 'MR.', 'VINOD', 'S', 'SUBRAMANIAN', 'S', 'M', '3/3/1980', '39B')
+insert into "vinod-lakeformation-raw-database"."sales_customer" values (5013, 'MR.', 'RISHAB', 'V', 'VINOD', 'S', 'M', '3/3/1980', '39B')
+insert into "vinod-lakeformation-raw-database"."sales_customer" values (5014, 'MR.', 'BUSKI', 'V', 'VINOD', 'S', 'F', '3/3/1980', '39B')
+
+If you change the query mode of your dataset to "SPICE", you have to manually refresh the dataset. 
+You can schedule a refresh of the dataset - for full refresh, hourly, daily, weekly, monthly options are available.
+For incremental refresh, "every 15 minutes" and "every 30 minutes" options are also available.
+Incremental Refresh uses your window size setting and a date column that you specify, to determine what portion of your full dataset will be refreshed each time.
+
+Note that, just like in AWS lakeFormation, you can set row-level or column-level security at the dataset level based on iam users, groups, roles or Tags.
+Tag-based rules is applicable only for enterprise customers.
+I will rather say, dashboards are shared with "everyone in this account" or "invite specific users and groups to dashboard" and row/column level security is not setup for reports.
+
+
+=========== SPICE vs Direct Query mode ============
+
+The main / only advantage of direct query mode is that we dont have to manually refresh or schedulea refresh of the dataset.
+Even when you schedule an incremental refresh on a spice dataset, the min possible is every 15 minutes.
+So if your requeirement is that the business cannot tolerate this lag, we might have to go with Direct Query mode.
+
+In detail:
+
+Spice: (Superfast, Parallel, In-memory Calculation Engine) — Its robust in memory engine that is used to perform advance calculation in large set of the data. 
+Data which makes visualization are stored in memory which makes, it faster and easier to retrieve then querying the original data source each time. 
+As a result, the dashboard refresh become faster and load on data sources will be none. 
+SPICE capacity is allocated separately for each AWS region. 
+SPICE capacity is shared by all the people using Quick Sight in a single AWS Region. 
+Admin has authority to buy or release the SPICE capacity based on their usage.
+
+Data Refresh: Full Refresh and incremental data refresh is possible. 
+Incremental refresh queries only data within defined timeframe like past 7 days,3 months etc. 
+The data currently in SPICE that’s within that window is deleted and replaced with the updated data taken from source database. 
+User can schedule the data refresh based on need like daily, monthly, hourly basis.
+
+Spice capacity: A spice dataset can hold up to 500 million rows or 500GB for the Enterprise Edition, however, 25 million rows or 25GB for the Standard edition.
+
+Advantages:
+
+1. Analytical query run faster than direct query mode.
+2. Spice work better for larger dataset with complex calculation
+3. Data stored in spice can be reused multiple times without having an additional cost.
+4. Super-fast dashboard load as data has been stored in memory.
+5. Incremental refresh possible for SQL based data sources like Redshift, Snowflake etc.
+6. Ingestion history can be tracked for latest information of ingestion like date, time, status, number of rows ingested successfully etc.
+
+Direct Query: When Direct query option is used with dataset or dashboard the queries get fetch directly from backend sources. CSV or Excel files can be import in the quick sight using this mode. User don’t need to setup data refresh explicit as under direct query mode it will automatically pull all the records from data source every time data gets viewed by the users.
+
+Advantages:
+
+1) No need to setup the explicit refresh for data load

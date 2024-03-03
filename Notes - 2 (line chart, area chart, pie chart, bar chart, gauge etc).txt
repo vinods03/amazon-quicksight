@@ -1,0 +1,55 @@
+********************* Line Graph ***********************
+
+Useful when you want to see how a measure changes over a period of time.
+Ex: How Sales or Profit changes over different order months.
+Refer 14. Line Graph.
+Under "Data Series" you can choose which series you want to style - sales or profit.
+Choose dashed line, smooth line etc, color, markers etc.
+Under X-axis and Y-axis, you can choose to have data labels or not.
+You can choose to have Legend or not - useful when there are multiple measures we are trying to track.
+You can add Reference lines - a constant or calculated (avg sales, avg profit etc) - and choose to have labels or not for the Reference lines.
+
+******************** Area Chart and Stacked Area Chart *****************************
+
+Very similar to Line Chart - Useful when you want to see how a measure changes over a period of time.
+The area under the line is colored for a more graphic picture.
+Refer 15. Area Chart and 16. Stacked Area Chart.
+We have used an extra dimension (region) in 15 and 16 compared to 14 where we had an extra measure (profit).
+This is to show how Stacked Area Chart overcomes the issue of overlapping areas in Area Chart. 
+I was not able to add the extra dimension when the extra mesaure was also there.
+
+So, Summarizing, when we have more than 1 measure to compare over a period of time, Line Chart might be good.
+When we have to compare 1 measure over a period of time and another dimension (like region, product category etc), Area Chart or Stacked Area Chart might be a better visualization.
+
+
+******************** Column and Bar Graphs ***************************
+
+Useful when you want to compare sales / profits of different products / product categories. 
+Not suitable for trend over a period of time.
+Ability to drill down.
+Again, you can add other dimensions and use Stacked Bar Graph etc like we did in Area/Stacked area graph.
+Vertical Stacked Bar chart, Vertical Stacked 100% Bar chart, Horizontal Bar Char Chart, Horizontal Stacked Bar Chart, Horizontal Stacked 100% Bar chart are different variations available.
+Refer 17. Column and Bar graphs.
+
+
+Refer 18. Recap - bar chart, line chart, filtering and interactions/cross-filtering for a quick recap of different types of visualization and interactions.
+
+
+********************** Pie chart and Donut chart *********************
+
+Useful when you want to represent a measure by % of a whole ex: 40% of sales is in NA, 35% of sales is in Eurpoe, 25% in Asia etc.
+Refer 19. Pie chart and Donut chart
+From Data Labels section of the Format Visual you can show percent, value, percent and value, label outside, label inside, no label etc.
+
+
+********************** Other types of charts *****************************
+
+Refer 20. Other charts
+
+gauge chart - 2 measures - one as a percentage of the other - profit vs sales 
+
+histogram - distribution of 1 measure (sales in this case)
+
+tree map - the size of the rectangles represent the volume of measure (sales in this case)
+
+scatter plot - correlation between 2 measures (cost of sales vs sales)

@@ -1,0 +1,82 @@
+Amazon QuickSight uses SPICE, a super-fast calculation engine, to deliver blazing fast performance on your datasets.
+
+****** VISUALIZATION TYPE 1 - TABLE ********
+When you login to QuickSight -> Datasets, new dataset, upload a file, Data.xlsx - the tabs within the xlsx will be shown. You can choose to edit/preview the data and then Save/Publish.
+Now go to Analyses -> New analysis -> choose the above dataset and click on Use in Analysis.
+Change the Visualization from Autograph to "Table". 
+So "Table" is the first type of visualization we are seeing in Amazon QuickSight.
+Drag the dimensions and measures, change the formatting of numbers if needed, replace/remove dimensions if needed etc.
+You can change the sort order using the 3 ... against each field in the fields section or by clicking on the table.
+Click on the table -> format visual -> change the title etc.
+Add background to headers, change border format, enable totals, add visuals like databars etc.
+Refer 1. Sales Report
+
+You can have multiple tables in a single analysis.
+Refer 2. Multi-table analysis.
+
+Mutiple types of aggregation - sum, min, max, count, count distinct, ave, median are possible.
+Click on the measure in the table to change the default "sum" aggregation type.
+Refer 3. Different types of aggregation and 4. Different types of aggregation
+You can click on the table -> Format Visual at the top right corner and change Value column names.
+See that Order ID and Product Name are dragged into the table as a measure - they become count(order id) and count(product name) by default.
+They will be equal but you need to change the count(product name) to count(distinct product name).
+When you try to drag a column into a table, you will be shown a blue color + and a green color + -> Choose green color + to drag the field as a measure and blue color + to drag the field as a dimension.
+
+*********** CROSS-FILTERING, INTERACTIONS between tables in an analysis ***********
+In an analysis that has multiple tables - you can enable cross-filtering. When you click on an item in 1 table, only related items in the other tables will be shown.
+Click on the table -> Properties -> Interactions -> Add action and the target visuals/tables can be all or selective tables. Refer 5. Interactions
+The "Filter scope" -> "All fields" means clicking on any of the fields in the source table should result in filtering.
+Note that, Cross-filtering, interactions are applicable across different types of visuals in an analyis and not only across tables.
+Refer 10. KPIs Tables PivotTables and CrossFiltering.
+
+In an analyis, you can pull in a Date field and then choose to group by Month or Quarter or Year of the date field.
+Refer 6. Working with Dates
+
+*********** CONDITIONAL FORMATTING **************
+You can choose to highlight certain values in your table using Conditional Formatting.
+There are 3 types - Background color, Text Color, Icon based. Background color can be solid or gradient formatting.
+You basically select column and the colors/gradient set for different values / ranges. For Icon based, you can choose an Icon set. 
+Refer 7. Conditional Formatting. 
+
+*********** VISUALIZATION TYPE 2 - PIVOT TABLE ****************
+Pivot table is used instead of normal table when we need table calculations like Percent of total, difference, Percent difference, Running total, Rank, Percentile etc.
+Remember to change "Calculate as" to "Table down", "Table across down" etc.
+In the "Pivot options" of the Format Visual, you can choose to display in hierarchy format or tabular format, show or hide subtotals etc.
+Can be used for more than 1 dimension also, like in a normal table.
+
+*********** PIVOT TABLES and PERCENTAGE CALCULATIONS ****************
+With Pivot Tables, you can show each value as a percentage of total. Click on the 3 ellipses near the measure -> Add table calculation -> Percent of total.
+Then Calculate as Table across, Table down, Table across down etc as per requirement.
+Refer 9. Pivot table with percentages.
+Note that this is not possible in a normal table.
+
+
+*********** VISUALIZATION TYPE 3 - KPI ****************
+You can use this KPI visualization to highlight single numbers/measures like total profit etc or use it with different dimensions.
+The visual will by itself highlight what is the key statistic.
+For ex, in 10. KPIs Tables PivotTables and CrossFiltering -> Profit KPI by region, the visual by itself has decided to compare NAM vs Asia and we dont have control to change it to Europe.
+
+10. KPIs Tables PivotTables and CrossFiltering - is a good summary of what we have learned thus far - Tables, Pivot Tables, KPIs, Percentage of Totals, Cross-Filtering/Interactions between visuals in an analysis.
+
+11. Pivot Table - different types of calculations - shows calculations other than Percent of Total - Running Total, % difference, Rank etc.
+Also, interactions-cross filtering. We have a table with year(order_date) and pivot table with month(order_date), profit, running profit, % difference, rank etc.
+Note, for table calculations - you need to adjust the "calculate as" as Table down, Table down across etc.
+Better to sort by month here and not by Rank, because that visual makes more sense.
+
+************** FILTERS *****************
+
+Filters are possible on text fields, numeric fields and date fields.
+Refer 12. Filters
+Numeric filters can be >, >=, <, <=, =, between, != etc
+Text filters can be a filter list, custom filter list (include, exclude), custom filter (contains, starts with, does not contain etc), top & bottom filter.
+The "Total Sales for bottom 10 countries" includes the top & bottom filter -> bottom 10 countries by sales.
+Date filters can be date-time range, relative dates (last 3 quarters, previous month etc), top & bottom (top 5 months, bottom 3 days etc).
+
+************** CONTROLS *****************
+
+Controls are very much like Filters.
+First create the Filters like above.
+Then add them to the sheet and pin to the top of the analysis.
+You have some extra "Control" options like Sliders for numeric filters, dropdown / dropdown multiselect etc for text filters.
+Also, from the Filters section, you can make teh filter applicable for one or all or specifiv visuals within the analysis.
+Refer 13. Controls.

@@ -1,0 +1,10 @@
+Go to Datasets (Refer Worksheet).
+Add Dataset -> Upload file -> Worksheet.csv. Then add another dataset -> upload file -> Master.csv. Set the join condition (columns / type of join).
+Change the table aliases as needed.
+Exclude unnecessary columns.
+Change data types if needed -> When you change String to Date, if you see data validation warnings, Edit data format and set format for the rows validation failed.
+Note that you can apply filter on the dataset itself, instead of applying filter on analysis.
+
+Now, you are ready to use the joined dataset in your analyses.
+
+Refer 25. Relationships.

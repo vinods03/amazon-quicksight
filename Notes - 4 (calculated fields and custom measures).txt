@@ -1,0 +1,32 @@
+Refer 22. Calculated Fields
+
+First, Go to Datasets tab - Create a new dataset - Upload file - Data2.xlsx
+Edit and Preview data
+At the top left, "Add Calculated Field" - Sales, Cost, Profit, year, month, Profit Range. 
+year and month are really not necessary as these can be easily derived in the analysis itself but just to demo caluclated fields on date these are shown.
+Remember to Save and Publish this dataset.
+
+Then use the modified dataset with calculated fields in Analysis.
+Created a Pivot table instead of normal table so that table calculations like Percent of total, difference, Percent difference, Running total, Rank, Percentile etc can be calculated easily.
+Remember to change "Calculate as" to "Table down".
+
+
+Refer 23. Calculated Fields / Custom Measures
+
+This is different from 22. Calculated Fields - In 22. Calculated Fields, we were operating on 2 different fields in "dataset".
+Here, we will be operating on a single field in "analysis".
+Now, suppose you want Profit Ratio for each country. 
+Suppose, you do the usual way - drag country into dimension, profit and sales into measures - they become sum(profit) and sum(sales).
+But for every country -> you cannot access the above sum(profit) or sum(sales) because these are not fields in the dataset / analysis.
+You can only do profit/sales and that does not give the correct picture. profit and sales are at item level -> so for each item the ratio would be calculated and added up which is not waht we want.
+
+Now, within the analysis, at the top left, add calculated fields Total Profit as SUM(PROFIT) and Total Sales as SUM(SALES).
+Now, using these fields, you can create another calculated field Profit Ratio as Total Profit/Total Sales.
+Drag these fields into the analysis.
+
+
+
+Refer 23. Calculated Fields / Custom Measures
+
+We want total Sales by country but also total sales by country for Bikes alone, average sales by country for Bikes alone, total sales by country for 2019 alone.
+We need to have calculated fields using functions like sumif, avgif etc. 
